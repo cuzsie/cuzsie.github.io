@@ -14,3 +14,6 @@ welcome to my website full of random garbage
 
 ## Troll Links
 - [Wega Jumpscare](https://cuzsie.github.io/troller)
+
+## Random Shit
+- [The Entire Bible](https://cuzsie.github.io/bible)
