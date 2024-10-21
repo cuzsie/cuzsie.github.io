@@ -1,12 +1,12 @@
-welcome to my website full of random garbage
+Hello!!!
+This website is a huge nothing burger for now lmao. I mostly use it to host random links and Discord embeds, but I'm working on making it an actual site Very Soon™
 
-## Social Links
-- [Youtube](https://cuzsie.github.io/youtube)
-- [Twitter](https://cuzsie.github.io/twitter)
-- [GameJolt](https://cuzsie.github.io/gamejolt)
+# Here's some of my stuff in the meantime:
 
-## Projects
-- [Raldi's Crackhouse](https://cuzsie.github.io/raldi)
+You can find my links [here.](https://linktr.ee/cuzsie)
+and I have a Discord: *'cuzsie'*, I don't usually check friend requests but my DMs are on for now :D
+
+# And other random stuff:
 
 ## Discord Tomfoolery (right click to copy link)
 - [CLICK THIS GIF FOR MRBEAST](https://cuzsie.github.io/mrbeast.jpg)
