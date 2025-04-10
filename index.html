@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Cuzsie's Site
+        </title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+        <link rel="stylesheet" href="styles.css">
+
+        <style>
+            @font-face { 
+                font-family: Nintendo-DS-BIOS; 
+                src: url('assets/font/Nintendo-DS-BIOS.ttf'); 
+            } 
+
+            body {
+                background-color: black;
+            }
+
+            .image-container { 
+                position: fixed;
+                left: 25%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                grid-template-rows: 125px 125px;
+                display: grid;
+                align-items: center;
+                justify-content: space-evenly;
+                background-color:rgba(0, 0, 0, 0.5);
+                border-radius: 20%;
+            } 
+
+            #big-button {
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 100px;
+                width: 300px;
+                height: 125px;
+                transition: font-size 0.15s ease-out;
+            }
+
+            #big-button:hover {
+                font-size: 125px;
+            }
+
+            .cuzsie-laptop {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                filter: drop-shadow(10px 10px rgba(0, 0, 0, 0.5));
+                width: 500px;
+                height: 500px;
+            }
+
+            #top-text {
+                position: fixed;
+                padding: 1em;
+                bottom: -10px;
+                left: -10px;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="index.js"></script>
+        <div id="bgGradient"></div>
+        <div id="background-2" class="background-layer"></div>
+        <div id="background" class="background-layer"></div>    
+
+        <div id="top-text" class="text-layer">Art by tuc!</div>
+        <div id="title-text" class="text-layer">Hello! :D</div>
+        <div id="small-text" class="text-layer">I make stuff sometimes.</div>
+        <div id="small-text" class="text-layer">Please note: This website is extremely work in progress!</div>
+        <br>
+        <img class="cuzsie-laptop" src="assets/puterguy.gif" onclick="clickTheMan()">
+        <br><br><br>
+
+        <div class="image-container"> 
+            <a href="about/about.html">
+                <div id="big-button" class="text-layer">ABOUT</div>
+            </a>   
+    
+            <a href="projects/projects.html">
+                <div id="big-button" class="text-layer">PROJECTS</div>
+            </a>
+            
+            <a href="misc/misc.html">
+                <div id="big-button" class="text-layer"">MISC</div>
+            </a>
+        </div>
+
+        <audio id="bonk" src="assets/audio/bonk.mp3" type="audio/mp3">
+    </body>
+</html>
