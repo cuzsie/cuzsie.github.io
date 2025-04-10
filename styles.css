@@ -79,6 +79,14 @@
     transform: scale(1.05);
 }
 
+@media screen and (max-width: 480px) {
+    .back-button {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
 @keyframes bg1 {
     from {
         background-position: 0 0;

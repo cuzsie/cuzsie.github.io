@@ -6,6 +6,7 @@
         </title>
         <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
         <link rel="stylesheet" href="../styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <style>
             @font-face { 
@@ -17,23 +18,33 @@
                 background-color: black;
             }
 
-            .project-container { 
+            .project-container {
                 display: grid;
-                align-items: center;
-                align-content: space-between;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
                 justify-content: center;
-                display: grid;
-                grid-template-columns: 400px 400px 400px 400px;
-                grid-template-rows: 400px 400px;
-                max-width: 1050;
+                padding: 1rem;
+            }
+            
+            /* mobile stuff */
+            @media screen and (max-width: 768px) {
+                .project-container {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            
+            @media screen and (max-width: 480px) {
+                .project-container {
+                    grid-template-columns: 1fr;
+                }
             }
 
             .project-box {
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
-                width: 350px;
-                height: 350px;
+                width: 325px;
+                height: 325px;
                 border-radius: 20%;
                 background-color:rgba(0, 0, 0, 0.75);
                 transition: 
@@ -43,11 +54,11 @@
             }
 
             .project-box:hover {
-                width: 400px;
-                height: 400px;
+                width: 375px;
+                height: 375px;
             }
 
-            .project-box:hover > .project-image {
+            .project-box:hover .project-image {
                 border-radius: 0%;
                 width: 300px;
                 height: 300px;
@@ -55,12 +66,12 @@
 
             #project-text {
                 text-align: center;
-                font-size: 2cqw;
+                font-size: clamp(1.2rem, 2.5vw, 2.5rem);    
             }
 
             .project-image {
-                width: 250px;
-                height: 250px;
+                width: 235px;
+                height: 235px;
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
@@ -83,7 +94,7 @@
         <div id="background-2" class="background-layer"></div>
         <div id="background" class="background-layer"></div>    
 
-        <a href="javascript:history.back()" class="back-button">Back</a>
+        <a href="../index.html" class="back-button">Back</a>
 
         <div id="title-text" class="text-layer">Projects</div>
         <br><br><br>
@@ -96,24 +107,27 @@
                 <br>
                 <img class="project-image" src="icons/fallback.png">
             </div>  
-            <a onClick="window.location = 'https://github.com/cuzsie/UndertaleMusicFiles';">
-                <div class="project-box">
+
+            
+            <div class="project-box">
+                <a onClick="window.location = 'https://github.com/cuzsie/UndertaleMusicFiles';">
                     <div class="text-layer" id="project-text">
                         Undertale FLP Project
                     </div>
                     <br>
                     <img class="project-image" src="icons/utflp_art.png">
-                </div>  
-            </a>
-            <a onClick="window.location = 'https://gamejolt.com/games/raldicrackhouse/769103';">
-                <div class="project-box">
+                </a>
+            </div>  
+           
+            <div class="project-box">
+                <a onClick="window.location = 'https://gamejolt.com/games/raldicrackhouse/769103';">
                     <div class="text-layer" id="project-text">
                         Raldi's Crackhouse
                     </div>
                     <br>
                     <img class="project-image" src="icons/rch_art.png">
-                </div>  
-            </a>
+                </a>
+            </div>  
         </div>
     </body>
 </html>

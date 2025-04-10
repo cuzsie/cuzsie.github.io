@@ -6,6 +6,7 @@
         </title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.png">
         <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <style>
             @font-face { 
@@ -17,18 +18,26 @@
                 background-color: black;
             }
 
-            .image-container { 
-                position: fixed;
-                left: 25%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                grid-template-rows: 125px 125px;
-                display: grid;
+            .main-layout {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
                 align-items: center;
-                justify-content: space-evenly;
-                background-color:rgba(0, 0, 0, 0.5);
+                gap: 2rem;
+                flex-wrap: wrap;
+                margin-top: 2rem;
+            }
+
+            .image-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(0, 0, 0, 0.5);
                 border-radius: 20%;
-            } 
+                padding: 1rem;
+                width: 300px;
+            }
 
             #big-button {
                 display: inline-block;
@@ -37,20 +46,30 @@
                 font-size: 100px;
                 width: 300px;
                 height: 125px;
-                transition: font-size 0.15s ease-out;
+                transition: transform 0.15s ease-out;
+                text-align: center;
             }
 
             #big-button:hover {
-                font-size: 125px;
+                transform: scale(1.25);
             }
 
             .cuzsie-laptop {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
                 filter: drop-shadow(10px 10px rgba(0, 0, 0, 0.5));
                 width: 500px;
                 height: 500px;
+            }
+
+            @media (max-width: 768px) {
+                .cuzsie-laptop,
+                .image-container {
+                    width: 100%;
+                    max-width: 300px;
+                }
+
+                .cuzsie-laptop {
+                    height: auto;
+                }
             }
 
             #top-text {
@@ -67,28 +86,33 @@
         <div id="bgGradient"></div>
         <div id="background-2" class="background-layer"></div>
         <div id="background" class="background-layer"></div>    
+        
+        <div class="text-wrapper">
+            <div id="title-text" class="text-layer">Hello! :D</div>
+            <div id="small-text" class="text-layer">I make stuff sometimes.</div>
+            <div id="small-text" class="text-layer">Please note: This website is extremely work in progress!<br>SOME THINGS ARE BROKEN ON MOBILE!!</div>
+        </div>
+        <br>
+
+        <div class="main-layout">
+            <div class="image-container"> 
+                <a href="about/about.html">
+                    <div id="big-button" class="text-layer">ABOUT</div>
+                </a>   
+        
+                <a href="projects/projects.html">
+                    <div id="big-button" class="text-layer">PROJECTS</div>
+                </a>
+                
+                <a href="misc/misc.html">
+                    <div id="big-button" class="text-layer"">MISC</div>
+                </a>
+            </div>
+
+            <img class="cuzsie-laptop" src="assets/puterguy.gif" onclick="clickTheMan()">    
+        </div>
 
         <div id="top-text" class="text-layer">Art by tuc!</div>
-        <div id="title-text" class="text-layer">Hello! :D</div>
-        <div id="small-text" class="text-layer">I make stuff sometimes.</div>
-        <div id="small-text" class="text-layer">Please note: This website is extremely work in progress! SOME THINGS ARE BROKEN ON MOBILE</div>
-        <br>
-        <img class="cuzsie-laptop" src="assets/puterguy.gif" onclick="clickTheMan()">
-        <br><br><br>
-
-        <div class="image-container"> 
-            <a href="about/about.html">
-                <div id="big-button" class="text-layer">ABOUT</div>
-            </a>   
-    
-            <a href="projects/projects.html">
-                <div id="big-button" class="text-layer">PROJECTS</div>
-            </a>
-            
-            <a href="misc/misc.html">
-                <div id="big-button" class="text-layer"">MISC</div>
-            </a>
-        </div>
 
         <audio id="bonk" src="assets/audio/bonk.mp3" type="audio/mp3">
     </body>
