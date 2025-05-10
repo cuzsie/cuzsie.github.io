@@ -1,6 +1,6 @@
 @font-face { 
     font-family: Nintendo-DS-BIOS; 
-    src: url('/assets/font/Nintendo-DS-BIOS.ttf');
+    src: url('assets/font/Nintendo-DS-BIOS.ttf'); 
 }
 
 body {
