@@ -1,0 +1,192 @@
+@font-face { 
+    font-family: Determination; 
+    src: url('DTMMONOFix.ttf'); 
+} 
+
+body {
+  background: black;
+  color: white;
+  font-family: Determination;
+  text-align: center;
+  padding: 50px;
+  margin: 0;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+.nearest-neighbor {
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+    -webkit-font-smoothing: none;
+}
+
+.bg-container {
+    opacity: 0;
+    animation: fade 7s forwards;
+    animation-delay: 1s;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1;
+}
+
+.bg-pulse {
+    opacity: 0;
+    animation: pulse 5s infinite;
+    animation-timing-function: linear;
+}
+
+#type {
+    position: relative;
+    z-index: 1;
+}
+
+#logo {
+    opacity: 0;
+    width: 30em;
+    max-width: 100%;
+    animation:
+        fade 1s;
+    animation-fill-mode: forwards;
+}
+
+.timer {
+    background: linear-gradient(180deg,rgba(255, 255, 0, 1) 0%, rgba(230, 230, 0, 1) 50%);
+    color: transparent;
+    background-clip: text;
+    font-size: 12em;
+}
+
+.true-timer {
+    color: gray;
+    font-size: 3em;
+    display: inline-block;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes fade {
+    to {opacity: 1}
+}
+
+@keyframes pulse {
+    0% {
+        scale: 1;
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.6;
+      }
+      100% {
+        scale: 1.5;
+        opacity: 0;
+      }
+}
+
+.timer-area {
+    opacity: 0;
+    animation:
+        fade 1s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+
+#disclaimer {
+    position: fixed;
+    text-align: left;
+    left: 0.5vw;
+    bottom: -0.5vw;
+    font-size: 1.25vw;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .timer {
+        font-size: 25vw;
+    }
+
+    .true-timer {
+        position: fixed;
+        bottom: 10vh;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 10vw;
+        white-space: nowrap;
+        letter-spacing: 0.3vw;
+        z-index: 2;
+        padding: 0.5vh 1vw;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.75);
+        border-radius: 10%;
+    }
+
+    #logo {
+        width: 100vw; 
+    }
+
+    .bg-container {
+        animation-delay: 0.5s;
+    }
+
+    #type {
+        font-size: 10vw;
+    }
+
+    #tomorrows {
+        font-size: 10vw;
+    }
+
+    #disclaimer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 3.5vw;
+        padding: 1vh 0;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.75);
+    }
+
+    #fg-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    #center-stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2vh;
+    }
+}
