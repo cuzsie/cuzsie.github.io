@@ -8,27 +8,13 @@
       <input id="retry" onclick="wega();" type="button" value="Retry">
     </div>
 
-    <img id="wegap" src="wegathon.jpeg" width="100%" height="1000" hidden="true">
+    <img id="wegap" src="../assets/images/screamer/wegathon.jpeg" width="100%" height="1000" hidden="true">
 
     <audio id="wega">
-        <source src="wegathon.mp3" type="audio/mp3">
+        <source src="../assets/audio/screamer/wegathon.mp3" type="audio/mp3">
     </audio>
 
-    <script>
-      function wega()
-      {
-        var text = document.getElementById("text");
-        var wegap = document.getElementById("wegap");
-        var element = document.getElementById("wega");
-
-        document.title = "WEGA";
-
-        text.hidden = true;
-        wegap.hidden = false;
-        element.play();
-      }
-    </script>
-
+    <script src="script.js"></script>
   </head>
   <body>
     

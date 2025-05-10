@@ -1,3 +1,12 @@
+@font-face { 
+    font-family: Nintendo-DS-BIOS; 
+    src: url('assets/font/Nintendo-DS-BIOS.ttf'); 
+}
+
+body {
+    background-color: black;
+}
+
 #bgGradient {
     position: fixed;
     top: 0;
@@ -21,12 +30,12 @@
 }
 
 #background {
-    background-image: url("assets/main/grid.png");
+    background-image: url("assets/images/main/grid.png");
     animation: bg1 100s linear infinite;
 }
 
 #background-2 {
-    background-image: url("assets/main/grid_2.png");
+    background-image: url("assets/images/main/grid_2.png");
     animation: bg2 500s linear infinite;
 }
 

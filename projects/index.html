@@ -4,20 +4,11 @@
         <title>
             Cuzsie's Site
         </title>
-        <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+        <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
         <link rel="stylesheet" href="../styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <style>
-            @font-face { 
-                font-family: Nintendo-DS-BIOS; 
-                src: url('../assets/font/Nintendo-DS-BIOS.ttf'); 
-            } 
-
-            body {
-                background-color: black;
-            }
-
             .project-container {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -77,6 +68,7 @@
                 margin-right: auto;
                 border-radius: 20%;
                 transition: width 0.25s ease-out, height 0.25s ease-out, border-radius 0.25s ease-out;
+                pointer-events: none;
 
                 image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
                 image-rendering: -moz-crisp-edges;          /* Firefox                        */
@@ -94,7 +86,7 @@
         <div id="background-2" class="background-layer"></div>
         <div id="background" class="background-layer"></div>    
 
-        <a href="../index.html" class="back-button">Back</a>
+        <a href="../" class="back-button">Back</a>
 
         <div id="title-text" class="text-layer">Projects</div>
         <br><br><br>
@@ -105,7 +97,7 @@
                     BFBBP (Unreleased)
                 </div>
                 <br>
-                <img class="project-image" src="icons/fallback.png">
+                <img class="project-image" src="../assets/images/prjects/fallback.png">
             </div>  
 
             
@@ -115,7 +107,7 @@
                         Undertale FLP Project
                     </div>
                     <br>
-                    <img class="project-image" src="icons/utflp_art.png">
+                    <img class="project-image" src="../assets/images/prjects/utflp_art.png">
                 </a>
             </div>  
            
@@ -125,7 +117,7 @@
                         Raldi's Crackhouse
                     </div>
                     <br>
-                    <img class="project-image" src="icons/rch_art.png">
+                    <img class="project-image" src="../assets/images/prjects/rch_art.png">
                 </a>
             </div>  
         </div>
