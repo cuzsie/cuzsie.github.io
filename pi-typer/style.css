@@ -1,0 +1,36 @@
+body {
+    background-color: white;
+    background: 
+        repeating-conic-gradient(#dadada 0 25%, #bbbbbb00 0 50%) 50% / 150px 150px
+}
+
+h1 {
+    font-size: 100px;
+    text-align: center;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin: auto;
+}
+
+#pi {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 100px;
+    text-align: center;
+    margin: auto;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+#highscore {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: -1;
+    font-size: 50px;
+}

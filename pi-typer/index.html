@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Type The Digits Of PI!</h1>
+    <h2>Start typing, the further you get, the more points you'll earn!<br>PI will only go up to 1000 digits to prevent your browser exploding.</h2><br><br>
+
+    <div id="score-area">
+        <h1 id="score" style="color: rgb(55, 109, 190);">Score: 0</h1>
+        <h1 id="win-score" style="font-size: 45px; color: rgb(55, 109, 190);" hidden="true">Score: 0</h1>
+        <h1 id="death_results" style="font-size: 35px;">----</h1>
+    </div>
+
+    <hr>
+    <br><div id="pi">3.</div><br>
+    <hr>
+
+    <div id="highscore">High Score: 0</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.3.1/decimal.min.js"></script>
+    <script src="script.js"></script>
+</body>
