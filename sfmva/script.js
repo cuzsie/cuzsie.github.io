@@ -81,3 +81,11 @@ function loadLatest()
 {
     window.location.href = `${vers[latestUpdate].link}`;
 }
+
+function reset()
+{
+    localStorage.removeItem('dollState');
+    localStorage.removeItem('sfmData');
+    
+    document.getElementById('reset-confirm').hidden = false;
+}
