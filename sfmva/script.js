@@ -22,27 +22,21 @@ const vers = [
         date: "August 2023",
         link: "u2",
         info: "Site resumes operations. Adds graphic for Michael."
-    }//,
-    /*{
+    },
+    {
         title: "Update 3",
         date: "April 2025",
         link: "u3",
-        info: "Removes michael from the homepage."
-    },
-    {
+        info: "Alt site update. Contains <b>doll.html</b>, and removes Michael from the homepage."
+    }//,
+    /*{
         title: "Update 4",
-        date: "July 2025",
-        link: "u4",
-        info: "Alt site update. Contains <b>doll.html</b>."
-    },
-    {
-        title: "Update 5",
         date: "August 1, 2025",
         link: "u5",
         info: "Reviews update. Adds Tobias/The Game, the reviews page, and <b>newspaper.html</b>."
     },
     {
-        title: "Update 6",
+        title: "Update 5",
         date: "August 3, 2025",
         link: "u6",
         info: "Coupon update. Adds the deals page, <b>mother.html, father.html</b>, and more content to Tobias/The Game."

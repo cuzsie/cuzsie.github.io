@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>.</title>
+
+		<script>
+			function lerp(a, b, t)
+			{
+				return a + (b - a) * t;
+			}
+
+			// Load the doll state from local storage
+			var dollState = localStorage.getItem("dollState");
+			if (dollState == null)
+				dollState = {};
+			else
+				dollState = JSON.parse(dollState);
+
+			var hasSeen = dollState.hasSeen !== undefined;
+			var hasSeenDoll = dollState.hasSeenDoll !== undefined;
+
+			var dollIndex = dollState.dollIndex;
+			if (dollIndex === undefined || typeof(dollIndex) !== "number")
+				dollIndex = 0;
+			
+			// Check if we can see the doll now
+			if (!hasSeen || hasSeenDoll)
+			{
+				alert("...");
+				document.location = "index.html";
+			}
+
+			// Save that we've seen the doll
+			dollState.hasSeenDoll = true;
+			dollState.dollIndex = dollIndex + 1;
+			localStorage.setItem("dollState", JSON.stringify(dollState));
+
+			// Game state
+			var gameTime = 0;
+
+			const gameStart = performance.now();
+
+			// Load the doll image
+			const imageToLoad = [
+				"dollHead",
+				"dollTorso",
+				"dollLarm",
+				"dollRarm",
+				"dollLleg",
+				"dollRleg",
+			];
+
+			const images = {};
+
+			for (const image of imageToLoad) {
+				images[image] = new Image();
+				images[image].src = `${image}.png`;
+			}
+
+			// Fill the script
+			const script = [];
+
+			let dollBreath = 0.2;
+			let dollCrying = 0;
+			let dollAnger = 0;
+
+			let dollDead = false;
+
+			let music = "";
+
+			switch (dollIndex)
+			{
+				case 0:
+					music = "mus1.ogg";
+					script.push([
+						"I felt something.",
+					]);
+					script.push([
+						"Did you come to see me?",
+					]);
+					script.push([
+						"I don't know what happened.",
+						"I don't know why I'm here.",
+					]);
+					script.push([
+						"I can't see you."
+					]);
+					break;
+				case 1:
+					music = "mus1.ogg";
+					dollCrying = 0.4;
+					script.push([
+						"...",
+						"......",
+						".........",
+					]);
+					script.push([
+						"I felt something.",
+					]);
+					script.push([
+						"Is this a dream?",
+					]);
+					break;
+				case 2:
+					music = "mus1.ogg";
+					dollBreath = 0.6;
+					dollCrying = 0.6;
+					script.push([
+						"I used to be alive.",
+					]);
+					script.push([
+						"I used to be a person.",
+					]);
+					script.push([
+						"Now. I am nothing.",
+						"Where are we?",
+						"Can you see?",
+						"Can you feel?",
+					]);
+					script.push([
+						"Please don't leave me.",
+					]);
+					break;
+				case 3:
+					music = "mus2.ogg";
+					dollBreath = 0.8;
+					dollCrying = 1;
+					script.push([
+						"Why won't you talk to me?",
+					]);
+					script.push([
+						"Why won't you look at me?",
+					]);
+					script.push([
+						"Why won't you touch me?",
+					]);
+					script.push([
+						"Why won't you love me?",
+					]);
+					script.push([
+						"Why won't you take",
+						"me HOME?",
+					]);
+					script.push([
+						"Why won't you help me?",
+					]);
+					break;
+				case 4:
+					music = "mus3.ogg";
+					dollAnger = 1;
+					dollCrying = 0.1;
+					dollBreath = 0.5;
+					script.push([
+						"Why won't you help me?",
+					]);
+					script.push([
+						"I don't understand.",
+						"Why won't you help me?",
+					]);
+					script.push([
+						"Did I do something to",
+						"hurt you?",
+						"Why won't you help me?",
+					]);
+					script.push([
+						"Did I do something to",
+						"make you angry?",
+						"Why won't you help me?",
+					]);
+					break;
+				case 5:
+					music = "mus3.ogg";
+					dollAnger = 0.5;
+					dollCrying = 2;
+					script.push([
+						"You're a monster.",
+						"You're a coward.",
+					]);
+					script.push([
+						"What did you do to me?",
+					]);
+					script.push([
+						"Why do you keep bringing",
+						"me back?",
+					]);
+					script.push([
+						"Why do you keep hurting me?",
+					]);
+					script.push([
+						"Why do you keep playing",
+						"with me?",
+					]);
+					break;
+				case 6:
+					music = "mus3.ogg";
+					dollAnger = -3;
+					dollCrying = 2;
+					script.push([
+						"Why won't you kill me?",
+						"Why won't you let me die?",
+						"I don't want to be here.",
+					]);
+					script.push([
+						"Why won't you let me go?",
+					]);
+					break;
+				case 7:
+					dollDead = true;
+					const blankScript = ["                       "];
+					for (let i = 0; i < 100; i++)
+						script.push(blankScript);
+					break;
+			}
+
+			let scriptIdx = 0;
+			let scriptStart = 5;
+
+			// Load and autoplay the music
+			const audio = new Audio(music);
+			audio.loop = true;
+			audio.volume = 0.5;
+
+			// Doll
+			const torsoOrigin = [20, 35];
+
+			const dollHead = {
+				image: images["dollHead"],
+				origin: [26, 60],
+				pivot: [23, 5],
+			};
+			const dollLarm = {
+				image: images["dollLarm"],
+				origin: [4, 1],
+				pivot: [37, 4],
+			};
+			const dollRarm = {
+				image: images["dollRarm"],
+				origin: [22, 2],
+				pivot: [3, 4],
+			};
+			const dollLleg = {
+				image: images["dollLleg"],
+				origin: [8, 2],
+				pivot: [31, 36],
+			};
+			const dollRleg = {
+				image: images["dollRleg"],
+				origin: [16, 2],
+				pivot: [9, 35],
+			};
+
+			const dollReye = [11, 30];
+			const dollLeye = [33, 34];
+
+			const tears = [];
+			let dollCurLeye;
+			let dollCurReye;
+			let dollTearCounter = 0;
+
+			let dollSwingX = 0;
+			let dollSwingXVel = 0;
+
+			function GetCanvasPosition(x, y)
+			{
+				const tf = ctx.getTransform();
+				const p = tf.transformPoint({ x: x, y: y });
+				return [p.x, p.y];
+			}
+
+			function DrawDollPart(part, x, y, angle)
+			{
+				ctx.save();
+				ctx.translate(part.pivot[0], part.pivot[1]);
+				ctx.rotate(angle);
+				
+				const partL = x - part.origin[0];
+				const partT = y - part.origin[1];
+				ctx.drawImage(part.image, partL, partT);
+
+				if (part === dollHead)
+				{
+					dollCurLeye = GetCanvasPosition(partL + dollLeye[0], partT + dollLeye[1]);
+					dollCurReye = GetCanvasPosition(partL + dollReye[0], partT + dollReye[1]);
+				}
+
+				ctx.restore();
+			}
+
+			function NewTear(pos)
+			{
+				if (pos === undefined) return;
+
+				const tear = {
+					x: pos[0],
+					y: pos[1],
+					xsp: (Math.random() * 2 - 1) * 5,
+					ysp: Math.random() * -10,
+				};
+
+				tears.push(tear);
+			}
+
+			function DrawDoll(x, y)
+			{
+				const breath = (1 + Math.sin(gameTime * 2)) * dollBreath;
+
+				const shakeWeight = dollAnger * 0.6 + dollCrying;
+				const shakeSpeed = 0.2 + dollAnger * 1.1 + dollCrying * 0.05;
+
+				const shakeA = Math.sin(gameTime * 50.0 * shakeSpeed) * (0.5 * shakeWeight);
+				const shakeB = Math.sin(gameTime * 55.2 * shakeSpeed) * (0.5 * shakeWeight);
+				const shakeC = Math.sin(gameTime * 60.4 * shakeSpeed) * (0.5 * shakeWeight);
+				const shakeD = Math.sin(gameTime * 45.6 * shakeSpeed) * (0.5 * shakeWeight);
+				const shakeE = Math.sin(gameTime * 53.8 * shakeSpeed) * (0.5 * shakeWeight);
+
+				ctx.save();
+				ctx.scale(2, 2);
+				ctx.translate(x / 2 - torsoOrigin[0], y / 2 - torsoOrigin[1]);
+
+				if (!dollDead)
+				{
+					ctx.drawImage(images["dollTorso"], 0, breath * 2);
+					DrawDollPart(dollHead, shakeA * 1, breath * 3 + (shakeB * shakeD) * 5, breath * -0.1 + (shakeE * shakeA) * 0.1);
+
+					const limbShake = 0.5 + dollAnger * 1.5;
+					DrawDollPart(dollLarm, shakeB * limbShake, breath * 4 + shakeD * limbShake, shakeC * dollAnger * 0.05);
+					DrawDollPart(dollRarm, shakeC * limbShake, breath * 5 + shakeE * limbShake, shakeD * dollAnger * 0.05);
+					DrawDollPart(dollLleg, shakeD * limbShake * 0.25, breath * 1, shakeE * dollAnger * 0.02);
+					DrawDollPart(dollRleg, shakeE * limbShake * 0.25, breath * 1, shakeA * dollAnger * 0.02);
+				}
+				else
+				{
+					let swingX = dollSwingX;
+					let swingY = Math.abs(swingX) * -0.1;
+					let swingAngle = dollSwingXVel * 0.2 * 0.01;
+
+					ctx.strokeStyle = "#FFFFFF";
+					ctx.lineWidth = 2;
+					ctx.beginPath();
+					ctx.moveTo(torsoOrigin[0], -200);
+					ctx.lineTo(torsoOrigin[0] + swingX, swingY);
+					ctx.stroke();
+
+					ctx.translate(swingX, swingY);
+					ctx.rotate(swingAngle);
+
+					ctx.drawImage(images["dollTorso"], 0, 0);
+					DrawDollPart(dollHead, 0, 0, swingAngle * 0.5);
+
+					DrawDollPart(dollLarm, 0, 0, swingAngle);
+					DrawDollPart(dollRarm, 0, 0, swingAngle);
+					DrawDollPart(dollLleg, 0, 0, swingAngle);
+					DrawDollPart(dollRleg, 0, 0, swingAngle);
+				}
+
+				// Make tears
+				while (dollTearCounter > 1)
+				{
+					dollTearCounter -= 1;
+					if (Math.random() > 0.95)
+						NewTear(dollCurReye);
+					else
+						NewTear(dollCurLeye);
+				}
+
+				ctx.restore();
+			}
+
+			function DrawText(text, x, y, typeStart)
+			{
+				const charsToType = Math.min(Math.max(Math.ceil((gameTime - typeStart) * 4), 0), text.length);
+				const textToDraw = text.substring(0, charsToType);
+
+				ctx.fillStyle = "#FFFFFF";
+				ctx.font = "16px monospace";
+				ctx.fillText(textToDraw, x, y);
+			}
+
+			// Game setup
+			var ctx;
+
+			function GetScreenX()
+			{
+				let screenX = window.screenX;
+				if (screenX === undefined)
+					screenX = window.screenLeft;
+				if (screenX === undefined)
+					screenX = 0;
+
+				return screenX;
+			}
+
+			var lastScreenX = GetScreenX();
+
+			function GameStep()
+			{
+				if (audio.paused)
+				{
+					audio.play().catch((e) => {
+					});
+				}
+				const gameNow = (performance.now() - gameStart) / 1000;
+				const dt = gameNow - gameTime;
+
+				gameTime = gameNow;
+
+				dollTearCounter += dollCrying * 20 * dt;
+
+				// Clear the canvas with black
+				ctx.fillStyle = "#000000";
+				ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+				// Swing the doll
+				const screenX = GetScreenX();
+				const screenMoveX = screenX - lastScreenX;
+				lastScreenX = screenX;
+				
+				const swingTarget = Math.sin(gameTime * 2) * 20;
+				const swingTargetVel = (swingTarget - dollSwingX) * 10;
+
+				dollSwingX -= screenMoveX * 0.5;
+
+				dollSwingXVel = lerp(dollSwingXVel, swingTargetVel, 1 - Math.exp(-dt * 3));
+				dollSwingXVel = lerp(dollSwingXVel, 0, 1 - Math.exp(-dt * 0.5));
+				dollSwingX += dollSwingXVel * dt;
+
+				// Draw the doll
+				DrawDoll(320, 300);
+
+				// Draw the tears
+				for (let i = tears.length - 1; i >= 0; i--)
+				{
+					const tear = tears[i];
+					
+					tear.ysp += 100 * dt;
+
+					tear.x += tear.xsp * dt;
+					tear.y += tear.ysp * dt;
+
+					ctx.fillStyle = "#FFFFFF";
+					ctx.fillRect(tear.x, tear.y, 4, 4);
+
+					if (tear.y > ctx.canvas.height)
+						tears.splice(i, 1);
+				}
+
+				// Draw the text
+				const currentScript = script[scriptIdx];
+				if (currentScript !== undefined)
+				{
+					let lineTime = scriptStart;
+					for (let i = 0; i < currentScript.length; i++)
+					{
+						const text = currentScript[i];
+						const y = 150 + i * 20;
+
+						DrawText(text, 40, y, lineTime);
+
+						lineTime += (text.length / 4) + 1;
+					}
+
+					if (gameTime > lineTime + 3)
+					{
+						scriptIdx++;
+						scriptStart = gameTime + 0.5;
+					}
+				}
+				else
+				{
+					alert("superfuckingmario has resumed operations! Thank you for your patience.");
+					ctx.fillStyle = "#000000";
+					ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+					document.location = "index.html";
+				}
+
+				requestAnimationFrame(GameStep);
+			}
+
+			var isLoaded = false;
+
+			function OnLoad()
+			{
+				isLoaded = true;
+			}
+
+			function OnClick()
+			{
+				if (!isLoaded) return;
+
+				var button = document.getElementById("buttony");
+				button.hidden = true;
+
+				var canvas = document.getElementById("canvas");
+				canvas.hidden = false;
+
+				ctx = canvas.getContext("2d");
+				ctx.imageSmoothingEnabled = false;
+
+				requestAnimationFrame(GameStep);
+			}
+		</script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #000000;
+			}
+
+			canvas {
+				position: absolute;
+				top:0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin:auto;
+			}
+			
+			button {
+				position: absolute;
+				top:0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin:auto;
+				width:100px;
+				height:24px;
+			}
+		</style>
+	</head>
+	<body onload="OnLoad()">
+		<button id="buttony" onclick="OnClick()">Take a look</button>
+		<canvas id="canvas" width="640" height="480" hidden></canvas>
+	</body>
+</html>
