@@ -16,14 +16,14 @@ const vers = [
         date: "August 2023",
         link: "u1-5",
         info: "Site closes operations."
-    }//,
-    /*{
-        title: "Update 2",
-        date: "May 2024",
-        link: "u2",
-        info: "Site resumes operations."
     },
     {
+        title: "Update 2",
+        date: "August 2023",
+        link: "u2",
+        info: "Site resumes operations. Adds graphic for Michael."
+    }//,
+    /*{
         title: "Update 3",
         date: "April 2025",
         link: "u3",
