@@ -14,7 +14,7 @@ window.MainPageSetup = () => {
     }
     (i += `<canvas id="logo" width="400" height="120"><img src="${t}"></canvas><br>`),
       (i +=
-        '<a href="/"><button>home</button></a> <a href="satisfaction.html"><button>customer reviews</button></a> <a href="coupon.html"><button>deals</button></a>'),
+        '<a href="index.html"><button>home</button></a> <a href="satisfaction.html"><button>customer reviews</button></a> <a href="coupon.html"><button>deals</button></a>'),
       (s.innerHTML = i),
       document.body.insertBefore(s, document.body.firstChild);
   })();
