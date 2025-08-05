@@ -10,14 +10,14 @@ const vers = [
         date: "August 2023",
         link: "u1",
         info: "Added 'Michael the game coming soon'."
-    }//,
-    /*{
-        title: "Update 1.5",
-        date: "May 2024",
-        link: "u1-5",
-        info: "Site closes operations. There's nothing of value here."
     },
     {
+        title: "Update 1.5",
+        date: "August 2023",
+        link: "u1-5",
+        info: "Site closes operations."
+    }//,
+    /*{
         title: "Update 2",
         date: "May 2024",
         link: "u2",
