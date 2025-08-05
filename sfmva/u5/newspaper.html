@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Newspaper</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	
+	<style>
+		body {
+			background-color: black;
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+
+			margin: auto;
+			width: 100%;
+			height: 100%;
+
+			image-rendering: pixelated;
+		}
+	</style>
+
+	<script>
+		function OnLoad() {
+			NewspaperSetup();
+		}
+	</script>
+  <script type="module" crossorigin src="assets/modulepreload-polyfill-DSXxu11X.js"></script>
+  <script type="module" crossorigin src="assets/main-2kg-5qTG.js"></script>
+</head>
+<body onload="OnLoad()">
+	<img id="newspaper" hidden>
+</body>
+</html>

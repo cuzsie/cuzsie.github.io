@@ -37,33 +37,47 @@ const vers = [
     {
         title: "Update 4",
         date: "August 1, 2025",
-        link: "u5",
+        link: "u4",
         info: "Reviews update. Adds Tobias/The Game, the reviews page, and <b>newspaper.html</b>.<br>Unarchived due to no public archives existing yet.",
         status: false
-    }//,
-    /*{
-        title: "Update 5",
+    },
+    {
+        title: "Update 5 (Latest)",
         date: "August 3, 2025",
-        link: "u6",
-        info: "Coupon update. Adds the deals page, <b>mother.html, father.html</b>, and more content to Tobias/The Game."
-    }*/
+        link: "u5",
+        info: "Coupon update. Adds the deals page, <b>mother.html, father.html</b>, and more content to Tobias/The Game.",
+        status: true
+    }
 ];
 
 const container = document.getElementById("list");
+let latestUpdate = 0;
 
-vers.forEach(ver => {
-    let title = ver.status ? `<a href="${ver.link}">${ver.title}</a>` : `${ver.title} <b><div style="color:red; display: inline;">(UNARCHIVED)</div></b>`;
-    const wrapper = document.createElement("div");
-    wrapper.className = "version";
-    wrapper.innerHTML = `
-    <div class="ver-panel">
-        <h3>
-        ${title}
-        [${ver.date}]
-        </h3>
-        ${ver.info}
-    </div>
-    `;
+setup();
 
-    container.appendChild(wrapper);
-});
+function setup()
+{
+    vers.forEach(ver => {
+        let title = ver.status ? `<a href="${ver.link}">${ver.title}</a>` : `${ver.title} <b><div style="color:red; display: inline;">(UNARCHIVED)</div></b>`;
+        const wrapper = document.createElement("div");
+        wrapper.className = "version";
+        wrapper.innerHTML = `
+            <div class="ver-panel">
+                <h3>
+                ${title}
+                [${ver.date}]
+                </h3>
+                ${ver.info}
+            </div>
+            `;
+
+        container.appendChild(wrapper);
+    });
+
+    latestUpdate = vers.length - 1;
+}
+
+function loadLatest()
+{
+    window.location.href = `${vers[latestUpdate].link}`;
+}

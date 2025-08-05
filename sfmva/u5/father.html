@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Not Found</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	
+	<style>
+		body {
+			background-color: black;
+		}
+		img {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			transform: scale(2);
+			image-rendering: pixelated;
+		}
+		button {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+	<script>
+		function OnClick() {
+			document.querySelector("img").hidden = false;
+			document.querySelector("button").hidden = true;
+
+			let audio = new Audio("assets/mus/Father.ogg");
+			audio.loop = true;
+			audio.play();
+		}
+	</script>
+</head>
+<body>
+	<button onclick="OnClick()">Click Me</button>
+	<img src="assets/img/infarto3.png" hidden>
+</body>
+</html>
