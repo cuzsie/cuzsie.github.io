@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Not Found</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+	
+	<style>
+		#normalbody {
+			margin: 0;
+			padding: 0;
+			background-color: #FFF;
+		}
+		#theimage {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			image-rendering: pixelated;
+		}
+	</style>
+
+  <script type="module" crossorigin src="assets/main-CLWPWjqf.js"></script>
+  <link rel="stylesheet" crossorigin href="assets/game-BEa4uVBj.css">
+</head>
+<body id="normalbody" onload="MichaelOnLoad()">
+	<img id="theimage" src="assets/img/michael.png" hidden>
+	<button id="gameStartButton" onclick="GameOnClick()" hidden>Game</button>
+	<canvas id="gameCanvas" width="640" height="480" hidden></canvas>
+</body>
+</html>

@@ -10,7 +10,7 @@ const vers = [
         title: "Update 1",
         date: "August 2023",
         link: "u1",
-        info: "Added 'Michael the game coming soon'.",
+        info: "The first site update.<br><br>-Added 'Michael the game coming soon'.",
         status: true
     },
     {
@@ -24,30 +24,37 @@ const vers = [
         title: "Update 2",
         date: "August 2023",
         link: "u2",
-        info: "Site resumes operations. Adds graphic for Michael.",
+        info: "Site resumes operations.<br><br>-Adds graphic for Michael.",
         status: true
     },
     {
         title: "Update 3",
         date: "April 2025",
         link: "u3",
-        info: "Alt site update. Contains <b>doll.html</b>, and removes Michael from the homepage.",
+        info: "Alt site update.<br><br>-Adds %doll.html% <br>-Removes Michael from the homepage.",
         status: true
     },
     {
         title: "Update 4",
         date: "August 1, 2025",
         link: "u4",
-        info: "Reviews update. Adds Tobias/The Game, the reviews page, and <b>newspaper.html</b>.<br>Unarchived due to no public archives existing yet.",
+        info: "Reviews update.<br><br>-Removes doll.html<br>-Adds Tobias's Game ( %tobias.html% )<br>-Adds the reviews page<br>-Adds %newspaper.html% <br>-Adds %michael.html% <br><br>Unarchived due to no public archives existing yet.",
         status: false
     },
     {
-        title: "Update 5 (Latest)",
+        title: "Update 5",
         date: "August 3, 2025",
         link: "u5",
-        info: "Coupon update. Adds the deals page, <b>mother.html, father.html</b>, and more content to Tobias/The Game.",
+        info: "Coupon update.<br><br>-Adds the deals page ( %coupon.html% )<br>-Adds 2 new coupon codes (KZ392, ft23)<br>-Adds %mother.html% <br>-Adds %father.html% <br>-Adds more content to Tobias's Game ( %tobias.html% )<br>-Obfuscated the source code",
         status: true
-    }
+    },
+    {
+        title: "Update 6 (Latest)",
+        date: "August 6, 2025",
+        link: "u6",
+        info: "Michael update.<br><br>-Adds %autumn.html% <br>-One new coupon code (988549849898598999990)<br>-New room in Tobias's Game ( %tobias.html% )<br>-Adds Michael's Game after entering the secret room in Tobias's ( %michael.html% )<br>-Adds Tobias The Game ( %tobias0.html% )<br>-1 new newspaper on %newspaper.html% ( %newspaper.html?sorry% )<br>-Encrypts certain strings in the source code",
+        status: true
+    },
 ];
 
 const container = document.getElementById("list");
@@ -58,6 +65,21 @@ setup();
 function setup()
 {
     vers.forEach(ver => {
+        let info = ver.info;
+        let infoSplit = info.split(" ");
+        
+        infoSplit.forEach(i => {
+            if (i.startsWith("%") && i.endsWith("%")) {
+                const clean = i.replaceAll("%", "");
+
+                console.log(i + " valid html link");
+                infoSplit[infoSplit.indexOf(i)] = ver.status ? `<a href="${ver.link}/${clean}">${clean}</a>` : clean;
+            }
+        });
+        
+        console.log(infoSplit.join(" "));
+        info = infoSplit.join(" ");
+
         let title = ver.status ? `<a href="${ver.link}">${ver.title}</a>` : `${ver.title} <b><div style="color:red; display: inline;">(UNARCHIVED)</div></b>`;
         const wrapper = document.createElement("div");
         wrapper.className = "version";
@@ -67,7 +89,7 @@ function setup()
                 ${title}
                 [${ver.date}]
                 </h3>
-                ${ver.info}
+                ${info}
             </div>
             `;
 
