@@ -457,9 +457,9 @@ function MapHandleObjectTouch() {
 
 		if (npcName === "newspaper") {
 			if (Math.random() < 0.5)
-				document.location = "/newspaper.html?whatsleftof";
+				document.location = "newspaper.html?whatsleftof";
 			else
-				document.location = "/newspaper.html?him";
+				document.location = "newspaper.html?him";
 		}
 	}
 }
