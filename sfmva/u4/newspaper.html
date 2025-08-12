@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Newspaper</title>
+<style>
+img {
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin:auto;
+	width: 100%;
+	height: 100%;
+}
+</style>
+<script>
+function OnLoad() {
+	var newspaper = document.getElementById("newspaper");
+
+	// Check if ?b is present in the URL
+	var urlParams = new URLSearchParams(window.location.search);
+	if (urlParams.has("whatsleftof"))
+		newspaper.src = "newspaperA.png";
+	else if (urlParams.has("him"))
+		newspaper.src = "newspaperB.png";
+	else
+		return;
+
+	newspaper.hidden = false;
+}
+</script>
+</head>
+<body onload="OnLoad()">
+<img id="newspaper" src="newspaperA.png" hidden>
+</body>
+</html>

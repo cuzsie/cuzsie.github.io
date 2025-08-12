@@ -38,8 +38,8 @@ const vers = [
         title: "Update 4",
         date: "August 1, 2025",
         link: "u4",
-        info: "Reviews update.<br><br>-Removes doll.html<br>-Adds Tobias's Game ( %tobias.html% )<br>-Adds the reviews page<br>-Adds %newspaper.html% <br>-Adds %michael.html% <br><br>Unarchived due to no public archives existing yet.",
-        status: false
+        info: "Reviews update.<br><br>-Removes doll.html<br>-Adds Tobias's Game ( %tobias.html% )<br>-Adds the reviews page<br>-Adds %newspaper.html% <br>-Adds %michael.html% <br><br>Archived by @digitalswirl on Discord!",
+        status: true
     },
     {
         title: "Update 5",
