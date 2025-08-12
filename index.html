@@ -1,114 +1,47 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Cuzsie's Site
-        </title>
-        <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
-        <link rel="stylesheet" href="styles.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Cuzsie's Site</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/bg.css">
+    <meta property="og:url" content="https://cuzsie.github.io/">
+	<meta name="twitter:url" content="https://cuzsie.github.io/">
+	<meta property="og:title" content="Cuzsie's Site">
+	<meta name="twitter:title" content="Cuzsie's Site">
+	<meta property="og:description" content="My site for me to put the random various things I do!">
+	<meta name="twitter:description" content="My site for me to put the random various things I do!">
+	<meta name="description" content="My site for me to put the random various things I do!">
+    <script src="/assets/scripts/main_page.js"></script>
+    <script src="/home.js"></script>
 
-        <style>
-            body {
-                background-color: black;
-            }
-
-            .main-layout {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                flex-wrap: wrap;
-                margin-top: 2rem;
-            }
-
-            .image-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                background-color: rgba(0, 0, 0, 0.5);
-                border-radius: 20%;
-                padding: 1rem;
-                width: 300px;
-            }
-
-            #big-button {
-                display: inline-block;
-                margin-left: auto;
-                margin-right: auto;
-                font-size: 100px;
-                width: 300px;
-                height: 125px;
-                transition: transform 0.15s ease-out;
-                text-align: center;
-            }
-
-            #big-button:hover {
-                transform: scale(1.25);
-            }
-
-            .cuzsie-laptop {
-                filter: drop-shadow(10px 10px rgba(0, 0, 0, 0.5));
-                width: 500px;
-                height: 500px;
-            }
-
-            @media (max-width: 768px) {
-                .cuzsie-laptop,
-                .image-container {
-                    width: 100%;
-                    max-width: 300px;
-                }
-
-                .cuzsie-laptop {
-                    height: auto;
-                }
-            }
-
-            #top-text {
-                position: fixed;
-                padding: 1em;
-                bottom: -10px;
-                left: -10px;
-                font-size: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <script src="index.js"></script>
-        <div id="bgGradient"></div>
-        <div id="background-2" class="background-layer"></div>
-        <div id="background" class="background-layer"></div>    
-        
-        <div class="text-wrapper">
-            <div id="title-text" class="text-layer">Hello! :D</div>
-            <div id="small-text" class="text-layer">I make stuff sometimes.</div>
-            <div id="small-text" class="text-layer">Please note: This website is extremely work in progress!<br>SOME THINGS ARE BROKEN ON MOBILE!!</div>
-        </div>
-        <br>
-
-        <div class="main-layout">
-            <div class="image-container"> 
-                <a href="about">
-                    <div id="big-button" class="text-layer">ABOUT</div>
-                </a>   
-        
-                <a href="projects">
-                    <div id="big-button" class="text-layer">PROJECTS</div>
-                </a>
-                
-                <a href="misc">
-                    <div id="big-button" class="text-layer"">MISC</div>
-                </a>
+    <style>
+        .cuzsie-laptop {
+            filter: drop-shadow(10px 10px rgba(0, 0, 0, 0.5));
+        }
+    </style>
+</head>
+<body onload="setupNav();">
+    <div id="content">
+        <div style="display: flex; text-align: center; justify-content: center; align-items: center;" id="top-area">
+            <div class="panel">
+                <p>Hello! I make things sometimes! :3</p>
+                <p>This site is just a place for me to put whatever various things I do!</p>
+                <p>Mostly consists of my info, random silly websites, and file downloads :]</p><br>
+                <p>Please note: <b>this website is VERY UNOPTIMIZED for mobile!</b><br>Things may display wrong or very small!</p><br>
+                 <p>If you find any issues, please let me know in DMs on <a style="color: rgb(40, 160, 255);" href="https://x.com/cuzsie">Twitter</a> or on Discord!</p>
             </div>
-
-            <img class="cuzsie-laptop" src="assets/images/puterguy.gif" onclick="clickTheMan()">    
+            <div id="cuzsie-area">
+                <img class="cuzsie-laptop" src="/assets/images/puterguy.gif" onclick="cuzsieClick()">
+            </div>
         </div>
+        <div style="text-align: center; padding: 0px; padding-top: 6px;" class="panel center-panel">
+            <a class="social-icon" href="https://youtube.com/cuzsie" target="_blank" rel="noopener noreferrer"><img src="/assets/images/socials/youtube.png"></a>
+            <a class="social-icon" href="https://x.com/cuzsie" target="_blank" rel="noopener noreferrer"><img src="/assets/images/socials/twitter.png"></a>
+            <a class="social-icon" href="https://github.com/cuzsie" target="_blank" rel="noopener noreferrer"><img src="/assets/images/socials/github.png"></a>
+            <a class="social-icon" href="https://discord.gg/6aJ33cSEud" target="_blank" rel="noopener noreferrer"><img src="/assets/images/socials/discord.png"></a>
+        </div>
+    </div>
+    <div id="bottom-text">Homepage art by tuc!</div>
 
-        <div id="top-text" class="text-layer">Art by tuc!</div>
-
-        <audio id="bonk" src="assets/audio/bonk.mp3" type="audio/mp3">
-    </body>
-</html>
+    <audio id="bonk" src="/assets/audio/squeak.mp3" type="audio/mp3"></audio>
+</body>

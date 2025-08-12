@@ -1,53 +1,24 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Cuzsie's Site
-        </title>
-        <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
-        <link rel="stylesheet" href="../styles.css">
-        <link rel="stylesheet" href="style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div id="bgGradient"></div>
-        <div id="background-2" class="background-layer"></div>
-        <div id="background" class="background-layer"></div>    
-
-        <a href="../" class="back-button">Back</a>
-
-        <div id="title-text" class="text-layer">Projects</div>
-        <br><br><br>
-        
-        <div class="project-container">
-            <div class="project-box">
-                <div class="text-layer" id="project-text">
-                    BFBBP (Unreleased)
-                </div>
-                <br>
-                <img class="project-image" src="../assets/images/projects/fallback.png">
-            </div>  
-
+<head>
+    <title>About | Cuzsie's Site</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/bg.css">
+    <meta property="og:url" content="https://cuzsie.github.io/projects">
+	<meta name="twitter:url" content="https://cuzsie.github.io/projects">
+	<meta property="og:title" content="Projects | Cuzsie's Site">
+	<meta name="twitter:title" content="Projects | Cuzsie's Site">
+	<meta property="og:description" content="My various random projects!">
+	<meta name="twitter:description" content="My various random projects!">
+	<meta name="description" content="My various random projects!">
+    <script src="/assets/scripts/main_page.js"></script>
+    <script src="projects.js"></script>
+</head>
+<body onload="setupNav(), loadProjects()">
+    <div id="content">
+        <h1 style="text-align: center;">Projects</h1>
+        <div class="panel center-panel" id="projects-panel">
             
-            <div class="project-box">
-                <a onClick="window.location = 'https://github.com/cuzsie/UndertaleMusicFiles';">
-                    <div class="text-layer" id="project-text">
-                        Undertale FLP Project
-                    </div>
-                    <br>
-                    <img class="project-image" src="../assets/images/projects/utflp_art.png">
-                </a>
-            </div>  
-           
-            <div class="project-box">
-                <a onClick="window.location = 'https://gamejolt.com/games/raldicrackhouse/769103';">
-                    <div class="text-layer" id="project-text">
-                        Raldi's Crackhouse
-                    </div>
-                    <br>
-                    <img class="project-image" src="../assets/images/projects/rch_art.png">
-                </a>
-            </div>  
         </div>
-    </body>
-</html>
+    </div>
+</body>

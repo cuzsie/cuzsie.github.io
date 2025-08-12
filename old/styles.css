@@ -1,0 +1,116 @@
+@font-face { 
+    font-family: Nintendo-DS-BIOS; 
+    src: url('/assets/font/Nintendo-DS-BIOS.ttf'); 
+}
+
+body {
+    background-color: black;
+    font-family: Nintendo-DS-Bios;
+}
+
+#bgGradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(94,0,112,1) 100%);
+    z-index: -2;
+}
+
+.background-layer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: auto 100%;
+    z-index: -1;
+}
+
+#background {
+    background-image: url("/assets/images/main/grid.png");
+    animation: bg1 100s linear infinite;
+}
+
+#background-2 {
+    background-image: url("/assets/images/main/grid_2.png");
+    animation: bg2 500s linear infinite;
+}
+
+.text-layer {
+    font-family: Nintendo-DS-BIOS;
+    color:white;
+    text-shadow: 4px 4px black;
+}
+
+#title-text {
+    text-align: center;
+    font-size: 80px;
+}
+
+#small-text {
+    text-align: center;
+    font-size: 40px;
+}
+
+#large-text {
+    text-align: center;
+    font-size: 55px;
+}
+
+.center-images {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(7px 7px black)
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: Nintendo-DS-BIOS;
+    font-size: 2rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 480px) {
+    .back-button {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@keyframes bg1 {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 10000px 10000px;
+    }
+}
+
+@keyframes bg2 {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -10000px -10000px;
+    }
+}

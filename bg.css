@@ -1,0 +1,4 @@
+body {
+    background: repeating-conic-gradient(var(--checker-a) 0% 25%, var(--checker-b) 0% 50%) 0 0 / var(--checker-size) var(--checker-size);
+    animation: scrollBg 3s linear infinite;
+}

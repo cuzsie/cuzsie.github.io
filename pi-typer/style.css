@@ -1,13 +1,14 @@
 @font-face { 
     font-family: Nintendo-DS-BIOS; 
-    src: url('../assets/font/Nintendo-DS-BIOS.ttf'); 
+    src: url('/assets/font/Nintendo-DS-BIOS.ttf'); 
 }
 
 body {
     background-color: white;
-    background: 
-        repeating-conic-gradient(#dadada 0 25%, #bbbbbb00 0 50%) 50% / 150px 150px;
+    background: repeating-conic-gradient(#dadada 0 25%, #bbbbbb00 0 50%) 50% / 150px 150px;
     font-family: Nintendo-DS-BIOS;
+    color: black;
+    text-shadow: none;
 }
 
 h1 {

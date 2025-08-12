@@ -1,0 +1,13 @@
+#selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 35px;
+    white-space: nowrap;
+
+    min-width: max-content;
+    width: fit-content;
+    max-width: 100%;
+
+    box-sizing: border-box;
+}
