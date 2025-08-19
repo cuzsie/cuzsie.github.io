@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Not Found</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: black;
+		}
+		#clickbutton {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		#theimage {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(3);
+			image-rendering: pixelated;
+		}
+	</style>
+	<script>
+		function OnClick() {
+			document.getElementById("theimage").hidden = false;
+			document.getElementById("clickbutton").hidden = true;
+
+			let audio = new Audio("assets/mus/mother.ogg");
+			audio.loop = true;
+			audio.play();
+		}
+	</script>
+</head>
+<body>
+	<button id="clickbutton" onclick="OnClick()">Click Me</button>
+	<img id="theimage" src="assets/img/figure.png" hidden>
+</body>
+</html>
