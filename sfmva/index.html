@@ -10,6 +10,8 @@
 	<meta property="og:description" content="An archive of all known superfuckingmario.com site updates.">
 	<meta name="twitter:description" content="An archive of all known superfuckingmario.com site updates.">
 	<meta name="description" content="An archive of all known superfuckingmario.com site updates.">
+    <meta property="og:image" content="/assets/images/sfmva/logo.png">
+	<meta name="twitter:image" content="/assets/images/sfmva/logo.png">
 
     <style>
         .ver-panel {
@@ -27,13 +29,17 @@
     <canvas id="logo" width="458" height="151"><img src="/assets/images/sfmva/logo.png"></canvas>
     <div>
         This website is an unofficial archive of all versions of <a href="https://superfuckingmario.com">superfuckingmario.com</a>.<br>
-        I <b>DO NOT OWN, NOR AM AFFILIATED WITH</b> THE ORIGINAL WEBSITE<br>
+        <b>ME, OR ANYONE INVOLVED IN THE ARCHIVE DO NOT OWN, NOR ARE AFFILIATED WITH THE ORIGINAL WEBSITE / ARG.</b><br>
         To view the latest archive, click <a href="javascript:loadLatest()">here</a>.<br><br>
 
         <div style="display: inline; color:red;"><b>DISCLAIMER: </b>You can't access the 404 pages by going to any link that doesn't exist. Doing that will bring you to my website's 404 page.<br>To access the 404 page for a given archive, go to /404.html.</div>
     </div>
     <br>
-    <button onclick="reset();">Reset Save Data</button>
+    <div style="display: inline-block;">
+        <button onclick="openAssetBrowser()">Asset Browser</button>
+        <button onclick="reset();">Reset Save Data</button>
+    </div>
+    <hr>
     <div hidden="true" id="reset-confirm" style="color: red;">Reset save data successfully!</div>
     <div id="list">
 
