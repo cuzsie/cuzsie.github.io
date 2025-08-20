@@ -25,6 +25,9 @@ function load()
         }
 
         items.forEach(item => {
+            if (item.type == "file" && subPath == "" || item.name == "browser" && subPath == "")
+                return;
+
             const li = document.createElement("li");
             const a = document.createElement("a");
 
