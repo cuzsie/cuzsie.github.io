@@ -54,14 +54,14 @@ const vers = [
         link: "u6",
         info: "Michael update.<br><br>-Adds %autumn.html% <br>-One new coupon code (988549849898598999990)<br>-New room in Tobias's Game ( %tobias.html% )<br>-Adds Michael's Game after entering the secret room in Tobias's ( %michael.html% )<br>-Adds Tobias The Game ( %tobias0.html% )<br>-1 new newspaper on %newspaper.html% ( %newspaper.html?sorry% )<br>-Encrypts certain strings in the source code",
         status: true
-    }//,
-    /*{
+    },
+    {
         title: "Update 7 (Latest)",
         date: "August 13, 2025",
         link: "u7",
         info: "Tobias + Tobias0 update.<br><br>-Adds new content to %tobias.html% after completing Michael.<br>-One new coupon code (erehllitsmi)<br>-Adds new content to %tobias0.html% when accessed through the new Tobias route.<br>-Adds a dataminer secret. ( %michaelBattle.html% )<br>-Adds one new newspaper relating to the dataminer secret. ( %newspaper.html?supermanthat% )<br>-Encrypts more strings in the source code.",
         status: true
-    }*/
+    }
 ];
 
 const container = document.getElementById("list");

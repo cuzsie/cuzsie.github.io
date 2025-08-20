@@ -9624,10 +9624,11 @@ class Dr extends Wh {
       (this.Od === 0 && Fr(-200),
       Be.Tc(Bs) || ((Ch.uc = 0), (Ch.lc = 1), Ir())),
       Ch.ye > 0 ||
+        // sans death logic (for future ref) - Cuzsie
         (Lh.xe(),
         gh.ka(void 0),
-        (it.nh =
-          c("üÙØt*B¥E9ºwÖý¿BªZó*)rI¶½ÂI?@å7á#t(", "ÿ4E\0~»?>´F¥æ0ÒF5Ë\\LM"))),
+        (it.nh = c("üÙØt*B¥E9ºwÖý¿BªZó*)rI¶½ÂI?@å7á#t(", "ÿ4E\0~»?>´F¥æ0ÒF5Ë\\LM"))
+        ),
       Ch.Xc > this.Cd && !Lh.Oe(Dt) && Lh.We(Dt);
   }
   rt() {
