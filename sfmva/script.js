@@ -136,15 +136,11 @@ function setup()
                     <button onclick="window.location.href = '${ver.link}'">Open</button>
                     <button onclick="window.location.href = 'browser/?path=${ver.link}'">Browse assets...</button>
                 </div>
-                <br>
+                <hr>
                 <div>
                     ${info}
                     ${changelog}
                 <div>
-                <br>
-                <div>
-                    
-                </div>
             </div>
         `;
 
