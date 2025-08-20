@@ -10,6 +10,8 @@ const url = `https://api.github.com/repos/cuzsie/cuzsie.github.io/contents/${fol
 
 function load()
 {
+    document.title = ((subPath == "" ? "" : `${subPath} | `) + "Asset Browser | ").concat(document.title);
+
     fetch(url).then(res => res.json()).then(items => {
         const list = document.getElementById("file-list");
 
