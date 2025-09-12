@@ -80,11 +80,6 @@ const randoms = [
         title: "mrbeast.jpg (FOR DISCORD, COPY LINK)",
         desc: "Discord embed, copy link.",
         ref: "https://cuzsie.github.io/mrbeast.jpg"
-    },
-    {
-        title: "orange.png (FOR DISCORD, COPY LINK)",
-        desc: "Discord embed, copy link.",
-        ref: "https://cuzsie.github.io/orange.png.jpg.gif.mp4.mp3.zip.rar.docx.rar.avi.txt.pptx.meta.jar.aac.aspx.bin.bmp.cab.cda.csv.dif.dll.doc.docm.docx.dot.dotx.eml.eps.exe.flv.gif.html.ini.iso.m4a.mdb.mid.mov.mp3.mpeg.msi.pdf.flp.zip"
     }
 ];
 
