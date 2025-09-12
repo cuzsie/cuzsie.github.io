@@ -118,10 +118,10 @@ function setup()
     vers.forEach(ver => {
         let title = ver.status ? `<a href="${ver.link}">${ver.title}</a>` : `${ver.title} <b><div style="color:red; display: inline;">(UNARCHIVED)</div></b>`;
         let info = linkFormat(ver.info, ver.link);
-        let changelog = ver.changelog.length <= 0 ? "" : (() => {
-            let log = "<br><h3>CHANGELOG</h3>";
+        let changelog = ver.changelog.length <= 0 ? "<br>" : (() => {
+            let log = "<br><b>CHANGELOG</b><br>";
             ver.changelog.forEach(change => {log += `-${linkFormat(change, ver.link)}<br>`;});
-            return log;
+            return log + "<br>";
         })();
         
         const wrapper = document.createElement("div");
@@ -130,17 +130,18 @@ function setup()
             <div class="ver-panel">
                 <div>
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        <h3>${title}</h3>
-                        [${ver.date}]
+                        <h2>${title}</h2>
+                        <h3>[${ver.date}]</h3>
                     </div>
-                    <button onclick="window.location.href = '${ver.link}'">Open</button>
-                    <button onclick="window.location.href = 'browser/?path=${ver.link}'">Browse assets...</button>
                 </div>
-                <hr>
                 <div>
                     ${info}
+                </div>
+                <div>
                     ${changelog}
                 <div>
+                <button onclick="window.location.href = '${ver.link}'">Open</button>
+                <button onclick="window.location.href = 'browser/?path=${ver.link}'">Browse assets...</button>
             </div>
         `;
 
