@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="icon" type="image/x-icon" href="/assets/favicon/sfm.ico">
-    <title>superfuckingmario [Version Archive]</title>
-    <script src="script.js" defer></script>
+    <title>Asset Browser | superfuckingmario [Version Archive]</title>
 
     <meta property="og:url" content="https://cuzsie.github.io/sfmva/browser">
 	<meta name="twitter:url" content="https://cuzsie.github.io/sfmva/browser">
@@ -14,35 +13,11 @@
     <meta property="og:image" content="/assets/images/sfmva/logo.png">
 	<meta name="twitter:image" content="/assets/images/sfmva/logo.png">
 
-    <style>
-        body { 
-            padding: 20px; 
-        }
-
-        ul { 
-            list-style: none; 
-            padding: 0; 
-        }
-
-        li { 
-            margin: 5px 0; 
-        }
-
-        a { 
-            text-decoration: none; 
-            color: blue; 
-        }
-    </style>
-
-    <script src="../logo.js"></script>
+    <link rel="stylesheet" href="/styles/sfmva.css">
+    <script src="/src/sfmva/script.js" defer></script>
 </head>
-<body onload="load(), OnLoad()">
+<body onload="setup_filebrowser(), setup_logo(), setup_navbar()">
     <canvas id="logo" width="458" height="151"><img src="/assets/images/sfmva/logo.png"></canvas>
-    <div>
-        <button onclick="goHome()">Back to archives</button>
-    </div>
-    <hr>
-    <div id="file-list">
-
-    </div>
+    <div id="navbar"></div>
+    <div id="file-list"></div>
 </body>

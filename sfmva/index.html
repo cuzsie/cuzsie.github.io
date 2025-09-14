@@ -13,37 +13,19 @@
     <meta property="og:image" content="/assets/images/sfmva/logo.png">
 	<meta name="twitter:image" content="/assets/images/sfmva/logo.png">
 
-    <style>
-        .ver-panel {
-            border: 1px solid #000000;
-            padding: 5px;
-            margin: 5px 0;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-        }
-    </style>
-
-    <script src="/src/sfmva/logo.js"></script>
+    <link rel="stylesheet" href="/styles/sfmva.css">
+    <script src="/src/sfmva/script.js" defer></script>
 </head>
-<body onload="OnLoad()">
+<body onload="setup_logo(), setup_navbar(), setup_versions()">
     <canvas id="logo" width="458" height="151"><img src="/assets/images/sfmva/logo.png"></canvas>
-    <div>
-        This website is an unofficial archive of all versions of <a href="https://superfuckingmario.com">superfuckingmario.com</a>.<br>
-        <b>ME, OR ANYONE INVOLVED IN THE ARCHIVE DO NOT OWN, NOR ARE AFFILIATED WITH THE ORIGINAL WEBSITE / ARG.</b><br>
-        To view the latest archive, click <a href="javascript:loadLatest()">here</a>.<br><br>
-
+    <div id="navbar"></div>
+    <div id="desc">
+        <p>This website is an unofficial archive of all versions of <a href="https://superfuckingmario.com">superfuckingmario.com</a>. <b>I AM NOT AFFILIATED WITH THE ORIGINAL WEBSITE / ARG.</b><br>
+        To view the latest archive, click <a href="javascript:loadLatest()">here</a>.</p>
         <div style="display: inline; color:red;"><b>DISCLAIMER: </b>You can't access the 404 pages by going to any link that doesn't exist. Doing that will bring you to my website's 404 page.<br>To access the 404 page for a given archive, go to /404.html.</div>
-    </div>
-    <br>
-    <div style="display: inline-block;">
-        <button onclick="openAssetBrowser()">Asset Browser</button>
-        <button onclick="reset();">Reset Save Data</button>
-    </div>
-    <hr>
+    </div><br>
+    <button onclick="reset();" style="background-color: red; color: white;">Reset Save Data</button>
     <div hidden="true" id="reset-confirm" style="color: red;">Reset save data successfully!</div>
-    <div id="list">
-
-    </div>
-
-    <script src="/src/sfmva/script.js"></script>
+    <hr>
+    <div id="list"></div>
 </body>
