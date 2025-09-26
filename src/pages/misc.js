@@ -11,34 +11,12 @@ const tabs = [
 
 const midis = [
     {
-        title: "A CYBERS WORLD - DELTARUNE Chapter 2",
-        desc: "Original song by Toby Fox",
-        year: 2025,
-        files: [{ name: "A_CYBERS_WORLD.mid", path: "A_CYBERS_WORLD.mid" }]
-    },
-    {
-        title: "BFB / Battle for BFDI - Intro",
-        desc: "",
-        year: 2025,
-        files: [{ name: "bfbIntro.mid", path: "bfbIntro.mid" }]
-    },
-    {
-        title: "Yo Quiero Taco Bell (1997)",
-        desc: "",
-        year: 2024,
-        files: [{ name: "Yo Quiero Taco Bell (1997) MIDI.mid", path: "Yo Quiero Taco Bell (1997) MIDI.mid" }]
-    },
-    {
-        title: "Amen Break / cw_amen",
-        desc: "",
-        year: 2023,
-        files: [{ name: "cw_amen.mid", path: "cw_amen.mid" }]
-    },
-    {
-        title: "Crackhouse Escape! (Main Melody) - Raldi's Crackhouse",
-        desc: "",
+        title: "esponja",
+        desc: "Based on an <a href=\"/assets/files/midis/esponja_2.mp4\">incredible video.</a>",
         year: 2022,
-        files: [{ name: "CrackhouseEscape.mid", path: "CrackhouseEscape.mid" }]
+        files: [
+            { name: "esponja.mid", path: "esponja.mid" }
+        ]
     },
     {
         title: "Squid Game vs. MrBeast - Rap Battle!",
@@ -47,12 +25,34 @@ const midis = [
         files: [{ name: "MRBEASTMIDI.mid", path: "MRBEASTMIDI.mid" }]
     },
     {
-        title: "esponja",
-        desc: "Based on an <a href=\"/assets/files/midis/esponja_2.mp4\">incredible video.</a>",
+        title: "Crackhouse Escape! (Main Melody) - Raldi's Crackhouse",
+        desc: "",
         year: 2022,
-        files: [
-            { name: "esponja.mid", path: "esponja.mid" }
-        ]
+        files: [{ name: "CrackhouseEscape.mid", path: "CrackhouseEscape.mid" }]
+    },
+    {
+        title: "Amen Break / cw_amen",
+        desc: "",
+        year: 2023,
+        files: [{ name: "cw_amen.mid", path: "cw_amen.mid" }]
+    },
+    {
+        title: "Yo Quiero Taco Bell (1997)",
+        desc: "",
+        year: 2024,
+        files: [{ name: "Yo Quiero Taco Bell (1997) MIDI.mid", path: "Yo Quiero Taco Bell (1997) MIDI.mid" }]
+    },
+    {
+        title: "BFB / Battle for BFDI - Intro",
+        desc: "",
+        year: 2025,
+        files: [{ name: "bfbIntro.mid", path: "bfbIntro.mid" }]
+    },
+    {
+        title: "A CYBERS WORLD - DELTARUNE Chapter 2",
+        desc: "Original song by Toby Fox",
+        year: 2025,
+        files: [{ name: "A_CYBERS_WORLD.mid", path: "A_CYBERS_WORLD.mid" }]
     }
 ];
 
@@ -145,7 +145,7 @@ function loadElements() {
             const renderMidis = (filter = "") => {
                 document.querySelectorAll(".midi-item").forEach(el => el.remove());
 
-                midis.filter(midi => midi.title.toLowerCase().includes(filter.toLowerCase())).forEach((midi, index) => {
+                midis.map((midi, index) => ({ midi, index })).reverse().filter(({ midi }) => midi.title.toLowerCase().includes(filter.toLowerCase())).forEach(({ midi, index }) => {
                     const wrapper = document.createElement("div");
                     wrapper.classList.add("midi-item");
                     wrapper.id = "midi";
