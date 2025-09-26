@@ -11,6 +11,12 @@ const tabs = [
 
 const midis = [
     {
+        title: "A CYBERS WORLD - DELTARUNE Chapter 2",
+        desc: "Original song by Toby Fox",
+        year: 2025,
+        files: [{ name: "A_CYBERS_WORLD.mid", path: "A_CYBERS_WORLD.mid" }]
+    },
+    {
         title: "BFB / Battle for BFDI - Intro",
         desc: "",
         year: 2025,
@@ -45,7 +51,7 @@ const midis = [
         desc: "Based on an <a href=\"/assets/files/midis/esponja_2.mp4\">incredible video.</a>",
         year: 2022,
         files: [
-            { name: "esponja.mid", path: "files/esponja.mid" }
+            { name: "esponja.mid", path: "esponja.mid" }
         ]
     }
 ];
@@ -118,6 +124,9 @@ function loadTabs() {
 }
 
 function loadElements() {
+    if (loadMidiDetail())
+        return;
+
     const page = getTab();
     console.log(page);
     content.innerHTML = "";
@@ -136,7 +145,7 @@ function loadElements() {
             const renderMidis = (filter = "") => {
                 document.querySelectorAll(".midi-item").forEach(el => el.remove());
 
-                midis.filter(midi => midi.title.toLowerCase().includes(filter.toLowerCase())).forEach(midi => {
+                midis.filter(midi => midi.title.toLowerCase().includes(filter.toLowerCase())).forEach((midi, index) => {
                     const wrapper = document.createElement("div");
                     wrapper.classList.add("midi-item");
                     wrapper.id = "midi";
@@ -145,10 +154,13 @@ function loadElements() {
                     let desc = midi.desc == "" ? "" : `<div class="midi-desc">${midi.desc}</div>`;
 
                     wrapper.innerHTML = `
-                        <div class="subtitle">${midi.title}</div>
+                        <div class="subtitle">
+                            <a href="/midis/?id=${index}">${midi.title}</a>
+                        </div>
                         ${desc}
                         <div class="subdesc">Year: ${midi.year}</div>
-                        <div><a href="/assets/files/midis/${midi.files[0].path}" target="_blank" rel="noopener noreferrer">${midi.files[0].name}</div><hr>
+                        <div><a href="/assets/files/midis/${midi.files[0].path}" target="_blank" rel="noopener noreferrer">${midi.files[0].name}</a></div>
+                        <hr>
                     `;
 
                     content.append(wrapper);
@@ -178,6 +190,48 @@ function loadElements() {
 
     matchSelectorWidth();
     loadTabs();
+}
+
+function loadMidiDetail() 
+{
+    const params = new URLSearchParams(window.location.search);
+
+    if (window.location.pathname.startsWith("/midis")) 
+    {
+        if (!params.has("id")) {
+            window.location = "/misc/?page=midis";
+            return true;
+        }
+
+        const id = parseInt(params.get("id"), 10);
+
+        if (!isNaN(id) && midis[id]) 
+        {
+            const midi = midis[id];
+            const detail = document.getElementById("content-area");
+            detail.innerHTML = `
+                <div style="font-size:60px;">${midi.title}</div>
+                <div>${midi.desc || ""}</div>
+                <div><b>Year:</b> ${midi.year}</div>
+                <audio controls>
+                    <source src="/assets/files/midis/preview/${midi.files[0].path}.mp3" type="audio/mpeg">
+                    Your browser does not support the MIDI preview.
+                </audio>
+                <div>
+                    <a href="/assets/files/midis/${midi.files[0].path}" target="_blank">
+                        Download: ${midi.files[0].name}
+                    </a>
+                </div>
+                <br>
+                <a style="color: white; float: left;" href="/misc/?page=midis">&larr; Back to MIDI list</a>
+                <br>
+            `;
+
+            return true;
+        }
+    }
+
+    return false;
 }
 
 function matchSelectorWidth() {
