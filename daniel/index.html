@@ -6,6 +6,7 @@
         <style>
             body {
                 background-color: #1f1f1f;
+                transition: background-color 1s ease-in-out;
             }
 
             img {
@@ -14,10 +15,81 @@
                 inset: 0;
                 margin: auto;
             }
+
+            #daniel-white {
+                opacity: 0;
+                scale: 15%;
+                user-select: none;
+            }
+
+            .anim {
+                animation-name: fadein;
+                animation-duration: 120s;
+                animation-fill-mode: forwards;
+            }
+
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                    scale: 15%;
+                }
+                to {
+                    opacity: 1;
+                    scale: 50%;
+                }
+            }
         </style>
+
+        <script>
+            let triggered = false;
+
+            const makeKeySequenceListener = (keySequence, callback) => {
+                let index = 0;
+                const targetKeys = keySequence.split('').map(key => key.toLowerCase());
+
+                return (event) => {
+                    const pressedKey = event.key.toLowerCase();
+                    
+                    if (pressedKey === targetKeys[index]) {
+                        index++;
+
+                        if (index === targetKeys.length) {
+                            callback();
+                            index = 0;
+                        }
+                    } 
+                    else {
+                        index = 0;
+                        
+                        if (pressedKey === targetKeys[0]) {
+                            index = 1;
+                        }
+                    }
+                };
+            };
+
+            const comboAction = () => {
+                if (triggered)
+                    return;
+
+                triggered = true;
+
+                document.body.style.backgroundColor = "#FFFFFF";
+                document.getElementById("daniel").hidden = true;
+                document.getElementById("daniel-white").hidden = false;
+                document.getElementById("daniel-white").classList.add("anim");
+
+                var music = new Audio('/assets/audio/hummus.mp3');
+                music.play();
+            };
+
+            const listener = makeKeySequenceListener('hummus', comboAction);
+            document.addEventListener('keydown', listener);
+        </script>
     </head>
 
     <body>
-        <img src="/assets/images/daniel.png">
+        <img id="daniel" src="/assets/images/daniel.png">
+        <img id="daniel-white" src="/assets/images/daniel_white.png" hidden="true">
     </body>
 </html>
