@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        Michael Jackson Clicker
+    </title>
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #mj {      
+            width: 250px;
+            image-rendering: optimizeSpeed;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            -ms-interpolation-mode: nearest-neighbor;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+    <script defer>
+        let rotation = 0;
+        let sound = 1;
+        
+        function flip()
+        {
+            rotation = (rotation + 90) % 360;
+            let mj = document.getElementById("mj");
+            mj.style.transform = `rotate(${rotation}deg)`;
+
+            sound = (sound + 1) % 2;
+
+            new Audio(`/assets/audio/mj/he${sound}.mp3`).play();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img id="mj" src="/assets/images/mj.png" onclick="flip()">    
+    </div>
+</body>
