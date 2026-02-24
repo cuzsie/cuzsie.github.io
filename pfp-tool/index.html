@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PFP Tool</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="/src/pfptool.js" defer></script>
+        
+        <link rel="icon" type="image/x-icon" href="/assets/favicon/pfp.png">
+        <link rel="stylesheet" href="/styles/pfptool.css">
+
+        <meta property="og:title" content="PFP Tool">
+        <meta name="twitter:title" content="PFP Tool">
+        <meta property="og:description" content="An easy tool to crop & preview profile pictures for any platform!">
+        <meta name="twitter:description" content="An easy tool to crop & preview profile pictures for any platform!">
+        <meta name="description" content="An easy tool to crop & preview profile pictures for any platform!">
+    </head>
+    <body>
+        <div id="title">PFP Tool</div>
+        <div id="subtitle">An easy tool to crop & preview profile pictures for any platform.</div><br>
+        <input type="file" id="upload" accept="image/*"><br>
+        
+        <div id="tool">
+            <div>
+                <div class="canvas-wrapper" id="wrapper">
+                    <img id="image">
+                    <div class="overlay" id="overlay"></div>
+                    <div class="crop-box" id="crop">
+                        <div class="handle nw"></div>
+                        <div class="handle ne"></div>
+                        <div class="handle sw"></div>
+                        <div class="handle se"></div>
+                        <div class="handle w"></div>
+                        <div class="handle e"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div class="previews" id="previews-large">
+                    <canvas class="preview" id="preview-square" width="200" height="200"></canvas><br>
+                    <canvas class="preview" id="preview-circle" width="200" height="200"></canvas><br>
+                </div><br>
+
+                <div class="previews" id="previews-small">
+                    <canvas class="preview preview-small" id="preview-square" width="200" height="200"></canvas><br>
+                    <canvas class="preview preview-small" id="preview-circle" width="200" height="200"></canvas><br>
+                </div>
+
+                <button id="download">Download</button>
+            </div>
+            
+        </div>
+
+        <div class="bottom-left">Tool by <a href="/">Cuzsie</a>.</div>
+    </body>
+</html>
