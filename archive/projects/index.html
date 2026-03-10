@@ -2,6 +2,8 @@
 <head>
     <title>About | Cuzsie's Site</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon/icon.png">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/bg.css">
     <meta property="og:url" content="https://cuzsie.github.io/projects">
 	<meta name="twitter:url" content="https://cuzsie.github.io/projects">
 	<meta property="og:title" content="Projects | Cuzsie's Site">
@@ -9,6 +11,14 @@
 	<meta property="og:description" content="My various random projects!">
 	<meta name="twitter:description" content="My various random projects!">
 	<meta name="description" content="My various random projects!">
-
-    <script>window.location.href = "/changes.html";</script>
+    <script src="/src/main_page.js "></script>
+    <script src="/src/pages/projects.js"></script>
 </head>
+<body onload="setupNav(), loadProjects()">
+    <div id="content">
+        <h1 style="text-align: center;">Projects</h1>
+        <div class="panel center-panel" id="projects-panel">
+            
+        </div>
+    </div>
+</body>
